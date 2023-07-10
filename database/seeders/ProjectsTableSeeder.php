@@ -16,7 +16,7 @@ class ProjectsTableSeeder extends Seeder
      */
     public function run()
     {
-        $projects = config('project');
+        $projects = config('projects');
 
         foreach ($projects as $arrProjects) {
             // metodo 1

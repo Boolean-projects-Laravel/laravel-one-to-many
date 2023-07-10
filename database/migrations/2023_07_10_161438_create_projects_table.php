@@ -44,14 +44,14 @@ return new class extends Migration {
     public function down()
     {
 
-        Schema::table('projects', function (Blueprint $table) {
+        // Schema::table('projects', function (Blueprint $table) {
 
-            //per aliminare la chiave esterna
-            $table->dropeForeign('projects_type_id_foreign');
+        //     //per aliminare la chiave esterna
+        //     $table->dropeForeign('projects_type_id_foreign');
 
-            //per eliminare la colonna
-            $table->dropColumn('type_id');
-        });
+        //     //per eliminare la colonna
+        //     $table->dropColumn('type_id');
+        // });
 
         Schema::dropIfExists('projects');
 
