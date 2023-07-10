@@ -1,7 +1,9 @@
 <?php
 
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Admin\TypeController;
 use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Guests\PageController as GuestsPageController;
 use App\Http\Controllers\Admin\PageController as AdminPageController;
@@ -30,6 +32,12 @@ Route::middleware('auth', 'verified')
         Route::delete('/projects/{project}/harddelete', [ProjectController::class, 'harddelete'])->name('projects.harddelete');
         Route::post('/projects/{project}/restore', [ProjectController::class, 'restore'])->name('projects.restore');
         Route::resource('projects', ProjectController::class);
+
+        // Type route
+        Route::get('types/trashed', [TypeController::class, 'trashed'])->name('types.trashed');
+        Route::post('types/{type}/restore', [TypeController::class, 'restore'])->name('types.restore');
+        Route::delete('types/{type}/harddelete', [TypeController::class, 'harddelete'])->name('types.harddelete');
+        Route::resource('types', TypeController::class);
     });
 
 Route::middleware('auth')

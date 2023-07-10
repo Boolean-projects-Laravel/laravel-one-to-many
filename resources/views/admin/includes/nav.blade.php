@@ -23,17 +23,25 @@
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Progetti
+                    Projects List
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="/admin/projects">Lista Progetti</a></li>
+                        <li><a class="dropdown-item" href="/admin/projects">Projects List</a></li>
                         <li><a class="dropdown-item" href="#">Another action</a></li>
                         <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="/admin/projects/trashed">Cestino</a></li>
+                        <li><a class="dropdown-item" href="/admin/projects/trashed">Trasher</a></li>
                     </ul>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled">Disabled</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Type List
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="/admin/types">Types List</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="/admin/types/trashed">Trasher</a></li>
+                    </ul>
                 </li>
             </ul>
             <form class="d-flex" role="search">
@@ -44,12 +52,7 @@
     </div>
 
     <div class="d-flex justify-content-end mx-2 my-2">
-        {{-- <div class="mx-1">
-            <a class="" href="http://127.0.0.1:8001/admin">
-                Dashboard
-            </a>
-        </div> --}}
-
+        
         <ul class="navbar-nav">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle mx-3" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="font-weight: 700">

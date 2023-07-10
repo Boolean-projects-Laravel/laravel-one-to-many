@@ -4,7 +4,7 @@
 @section('contents')
 
     <div class="bg-dark text-light py-2 mb-3">
-        <h1 class="ms-4" style="font-weight: 700">Lista Projects</h1>
+        <h1 class="ms-4" style="font-weight: 700">Projects List</h1>
     </div>
 
     @if (session('delete_success'))
@@ -40,7 +40,7 @@
     @endif
 
     <button type="button" class="btn btn-primary mt-4 mx-4">
-        <a href="{{ route("admin.projects.create") }}" class="card-link text-decoration-none text-light" style="font-weight: 700; font-size:25px">Creare un nuovo Progetto</a>
+        <a href="{{ route("admin.projects.create") }}" class="card-link text-decoration-none text-light" style="font-weight: 700; font-size:25px">Create a new Project</a>
     </button>
     <div class="container_table m-4">
         <table class="table table-striped mt-4">
@@ -53,23 +53,32 @@
                     <th scope="col">Last Update</th>
                     <th scope="col">Collaborators</th>
                     <th scope="col">Description</th>
+                    <th scope="col">Type</th>
                     <th scope="col">Languages</th>
                     <th scope="col">Link</th>
-                    <th scope="col">Actions</th>
+                    <th scope="col"><span class="d-flex justify-content-center" style="padding-right: 7rem;">Actions</span></th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($projects as $project)
                     <tr>
                         <th scope="row">{{ $project->title }}</th>
-                        <td>{{ $project->id }}</td>
+                        <th scope="row">{{ $project->id }}</th>
                         <td>{{ $project->author }}</td>
                         <td>{{ $project->creation_date}}</td>
                         <td>{{ $project->last_update }}</td>
                         <td>{{ $project->collaborators }}</td>
                         <td>{{ $project->description }}</td>
+                        <td>
+                            <a 
+                            class="text-decoration-none" 
+                            href="{{ route('admin.types.show', ['type' => $project->type]) }}"
+                            >
+                            {{ $project->type->name }}
+                            </a>
+                        </td>
                         <td>{{ $project->languages }}</td>
-                        <td><a href="{{ $project->link_github }}">Link</a></td>
+                        <td><a class="text-decoration-none" href="{{ $project->link_github }}">Link</a></td>
                         
                         <td>
                             <a class="btn btn-primary" href="{{ route('admin.projects.show', ['project' => $project]) }}">View</a>

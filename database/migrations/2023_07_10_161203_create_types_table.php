@@ -18,6 +18,8 @@ return new class extends Migration {
             $table->string('name', 20);
             $table->string('description', 500);
 
+            $table->softDeletes();
+
         });
     }
 
