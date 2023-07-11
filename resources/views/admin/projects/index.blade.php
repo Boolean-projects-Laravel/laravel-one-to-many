@@ -7,6 +7,8 @@
         <h1 class="ms-4" style="font-weight: 700">Projects List</h1>
     </div>
 
+    {{-- ******************************************************************** --}}
+
     @if (session('delete_success'))
             
     @php
@@ -14,7 +16,7 @@
     @endphp
 
     <div class="alert alert-danger">
-        Project '{{$project->title}}' è stato cancellato
+        The Project '{{$project->title}}' has moved to the trash
         <form 
             action="{{ route('admin.projects.restore', ['project' => $project]) }}"
             class="d-inline-block" 
@@ -34,14 +36,17 @@
     @endphp
 
     <div class="alert alert-success">
-        Project '{{$project->title}}' è stato ripristinato
+         The Project '{{$project->title}}' has been restored
     </div>
 
     @endif
 
+    {{-- *********************************************************************** --}}
+
     <button type="button" class="btn btn-primary mt-4 mx-4">
         <a href="{{ route("admin.projects.create") }}" class="card-link text-decoration-none text-light" style="font-weight: 700; font-size:25px">Create a new Project</a>
     </button>
+
     <div class="container_table m-4">
         <table class="table table-striped mt-4">
             <thead>
@@ -111,7 +116,7 @@
                         <form
                         action=""
                         data-template="{{ route('admin.projects.destroy', ['project' => '*****']) }}"
-                        method="post"
+                        method="POST"
                         class="d-inline-block"
                         id="confirm-delete"
                         >

@@ -15,8 +15,11 @@ class TypesTableSeeder extends Seeder
      */
     public function run()
     {
-        foreach (config('types') as $objType) {
-            Type::create($objType);
+        $types = config('types');
+
+        foreach ($types as $arrTypes) {
+
+            Type::create($arrTypes);
         }
     }
 }

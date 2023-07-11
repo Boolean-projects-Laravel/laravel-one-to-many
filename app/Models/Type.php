@@ -13,6 +13,7 @@ class Type extends Model
 {
     use HasFactory;
     use SoftDeletes;
+
     public $timestamps = false;
 
     public function projects()

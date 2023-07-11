@@ -11,6 +11,9 @@ class ProjectController extends Controller
 {
 
     private $validations = [
+
+
+        'type_id' => "required|integer|exists:types,id",
         'title' => 'required|string|min:5|max:50',
         'creation_date' => 'required|date|max:20',
         'last_update' => 'required|date|max:20',
@@ -25,6 +28,7 @@ class ProjectController extends Controller
         'min' => 'il campo :attribute deve avere minimo :min caratteri',
         'max' => 'il campo :attribute non può superare i :max caratteri',
         'url' => 'il campo deve essere un url valido',
+        'exists' => 'Valore non valido'
     ];
 
 
@@ -69,6 +73,7 @@ class ProjectController extends Controller
 
         $newProject = new Project();
 
+        $newProject->type_id = $data['type_id'];
         $newProject->title = $data['title'];
         $newProject->creation_date = $data['creation_date'];
         $newProject->last_update = $data['last_update'];
@@ -80,7 +85,7 @@ class ProjectController extends Controller
 
         $newProject->save();
 
-        return redirect()->route('admin.projects.show', ['project' => $newProject->id]);
+        return redirect()->route('admin.projects.index', ['project' => $newProject->id]);
     }
 
     /**
@@ -102,7 +107,8 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        return view('admin.projects.edit', compact('project'));
+        $types = Type::All();
+        return view('admin.projects.edit', compact('project', 'types'));
     }
 
     /**
@@ -122,6 +128,7 @@ class ProjectController extends Controller
 
         // salvare i dati nel database se validi
 
+        $project->type_id = $data['type_id'];
         $project->title = $data['title'];
         $project->creation_date = $data['creation_date'];
         $project->last_update = $data['last_update'];
@@ -147,7 +154,6 @@ class ProjectController extends Controller
         $project->delete();
 
         return to_route('admin.projects.index')->with('delete_success', $project);
-
     }
 
     //da qui in avanti bisogna richiamare i route dal web.php perchè il comando si ferma a 'destroy'
@@ -165,7 +171,6 @@ class ProjectController extends Controller
         $trashedProjects = Project::onlyTrashed()->paginate(5);
 
         return view('admin.projects.trashed', compact('trashedProjects'));
-
     }
     public function harddelete($id)
     {

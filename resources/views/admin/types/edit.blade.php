@@ -4,16 +4,6 @@
 
     <h1>Edit Type</h1>
 
-    {{-- @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif --}}
-
     <form method="POST" action="{{ route('admin.types.update', ['type' => $type->id]) }}" novalidate>
         @csrf
         @method('put')

@@ -18,7 +18,6 @@ class TypeController extends Controller
         'required' => 'Il campo :attribute è obbligatorio',
         'min' => 'Il campo :attribute deve avere almeno :min caratteri',
         'max' => 'Il campo :attribute non può superare i :max caratteri',
-        'url' => 'Il campo deve essere un url valido',
         'exists' => 'Valore non valido'
     ];
 
@@ -49,7 +48,7 @@ class TypeController extends Controller
         $newType->save();
 
         // rotta di tipo get
-        return to_route('admin.types.show', ['type' => $newType]);
+        return to_route('admin.types.index', ['type' => $newType]);
     }
 
     public function show(Type $type)

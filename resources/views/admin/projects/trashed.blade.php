@@ -2,15 +2,19 @@
 
 @section('contents')
 <div class="bg-dark text-light py-2 mb-3">
-    <h1 class="ms-4" style="font-weight: 700">Cestino</h1>
+    <h1 class="ms-4" style="font-weight: 700">Trash can</h1>
 </div>
+
+{{-- ********************************************************************** --}}
 
 @if (session('delete_success'))
     @php $project = session('delete_success') @endphp
     <div class="alert alert-danger">
-        Il progetto "{{ $project->title }}" è stato eliminato definitivamente
+        The Project "{{ $project->title }}" has been permanently deleted
     </div>
 @endif
+
+{{-- ********************************************************************** --}}
 
 <div class="container_table mx-4">
 
@@ -52,7 +56,7 @@
                             class="d-inline-block mx-1"
                         >
                             @csrf
-                            <button class="btn btn-success">Ripristina</button>
+                            <button class="btn btn-success">Restore</button>
                         </form>
                         <form
                             action="{{ route('admin.projects.harddelete', ['project' => $project->id]) }}"
@@ -62,7 +66,7 @@
                             @csrf
                             @method('delete')
                             <button class="btn btn-danger button_delete">
-                                Elimina definitivamente
+                                Permanently delete
                             </button>
                         </form>
                     </td>

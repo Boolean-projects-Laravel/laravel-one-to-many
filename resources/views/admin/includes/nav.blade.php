@@ -27,9 +27,8 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="/admin/projects">Projects List</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
                         <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="/admin/projects/trashed">Trasher</a></li>
+                        <li><a class="dropdown-item" href="/admin/projects/trashed">Trash can</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
@@ -38,9 +37,8 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="/admin/types">Types List</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
                         <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="/admin/types/trashed">Trasher</a></li>
+                        <li><a class="dropdown-item" href="/admin/types/trashed">Trash can</a></li>
                     </ul>
                 </li>
             </ul>

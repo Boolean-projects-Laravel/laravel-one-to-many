@@ -3,7 +3,7 @@
 @section('contents')
 <div class="p-5" style="margin-inline: 10rem">
     <h1>Edit Project</h1>
-    <form method="POST" action="{{ route('admin.projects.update', ['project' => $project] )}}" novalidate>
+    <form method="POST" action="{{ route('admin.projects.update', ['project' => $project])}}" novalidate>
         {{-- Per protezione dati --}}
         @csrf 
         {{-- Per protezione dati --}}
@@ -131,14 +131,14 @@
                 id="type"
                 name="type_id"
             >
-                {{-- @foreach ($types as $type)
+                @foreach ($types as $type)
                     <option
                         value="{{ $type->id }}"
                         @if (old('type_id', $project->type->id) == $type->id) selected @endif
                     >
                     {{ $type->name }}
                     </option>
-                @endforeach --}}
+                @endforeach
             </select>
             @error('type_id')
                 <div class="invalid-feedback">
